@@ -29,7 +29,7 @@ CXXFLAGS += -g -Wall -Wextra -pthread
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = Commission_unittest
+TESTS = CommissionProblem_unittest
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -71,12 +71,12 @@ gtest_main.a : gtest-all.o gtest_main.o
 # gtest_main.a, depending on whether it defines its own main()
 # function.
 
-Commission.o : $(USER_DIR)/Commission.cc $(USER_DIR)/Commission.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/Commission.cc
+CommissionProblem.o : $(USER_DIR)/CommissionProblem.cc $(USER_DIR)/CommissionProblem.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/CommissionProblem.cc
 
-Commission_unittest.o : $(USER_DIR)/Commission_unittest.cc \
-                     $(USER_DIR)/Commission.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/Commission_unittest.cc
+CommissionProblem_unittest.o : $(USER_DIR)/CommissionProblem_unittest.cc \
+                     $(USER_DIR)/CommissionProblem.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/CommissionProblem_unittest.cc
 
-Commission_unittest : Commission.o Commission_unittest.o gtest_main.a
+CommissionProblem_unittest : CommissionProblem.o CommissionProblem_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
