@@ -151,11 +151,11 @@ TEST(NextDateEquivalenceClassTest,Equivalence){
     EXPECT_STREQ("6/30/1996",NextDateProblem(6,29,1996));
     EXPECT_STREQ("6/30/2002",NextDateProblem(6,29,2002));
 
-/*
-	 EXPECT_STREQ("Invalid input date",NextDateProblem(6,30,2000));
- 	 EXPECT_STREQ("Invalid input date",NextDateProblem(6,30,1996));
-    EXPECT_STREQ("Invalid input date",NextDateProblem(6,30,2002));
-*/
+
+    EXPECT_STREQ("7/1/2000",NextDateProblem(6,30,2000));
+    EXPECT_STREQ("7/1/1996",NextDateProblem(6,30,1996));
+    EXPECT_STREQ("7/1/2002",NextDateProblem(6,30,2002));
+
     EXPECT_STREQ("Invalid input date",NextDateProblem(6,31,2000));
     EXPECT_STREQ("Invalid input date",NextDateProblem(6,31,1996));
     EXPECT_STREQ("Invalid input date",NextDateProblem(6,31,2002));
