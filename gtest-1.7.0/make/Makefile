@@ -29,7 +29,9 @@ CXXFLAGS += -g -Wall -Wextra -pthread
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = CommissionProblem_unittest
+TESTS3 = CommissionProblem_unittest
+TESTS1 = Triangle_unittest
+TESTS2 = NextDate_unittest
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -38,10 +40,10 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 
 # House-keeping build targets.
 
-all : $(TESTS)
+all : $(TESTS3) $(TESTS2) $(TESTS1)
 
 clean :
-	rm -f $(TESTS) gtest.a gtest_main.a *.o
+	rm -f $(TESTS3) $(TESTS2) $(TESTS1) gtest.a gtest_main.a *.o
 
 # Builds gtest.a and gtest_main.a.
 
@@ -79,4 +81,32 @@ CommissionProblem_unittest.o : $(USER_DIR)/CommissionProblem_unittest.cc \
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/CommissionProblem_unittest.cc
 
 CommissionProblem_unittest : CommissionProblem.o CommissionProblem_unittest.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+
+
+
+
+
+
+Triangle.o : $(USER_DIR)/Triangle.cc $(USER_DIR)/Triangle.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/Triangle.cc
+
+Triangle_unittest.o : $(USER_DIR)/Triangle_unittest.cc \
+                     $(USER_DIR)/Triangle.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/Triangle_unittest.cc
+
+Triangle_unittest : Triangle.o Triangle_unittest.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+
+
+
+
+NextDate.o : $(USER_DIR)/NextDate.cc $(USER_DIR)/NextDate.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/NextDate.cc
+
+NextDate_unittest.o : $(USER_DIR)/NextDate_unittest.cc \
+                     $(USER_DIR)/NextDate.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/NextDate_unittest.cc
+
+NextDate_unittest : NextDate.o NextDate_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@

@@ -2,11 +2,11 @@
 #include<cstring>
 #include "CommissionProblem.h"
 
-char *output=NULL;
 
 
 char *Commission(int locks,int stocks,int barrels){
 
+char *output=NULL;
 char the_output[100];
 int commission=0;
 bool invalid_locks = false;
