@@ -8,7 +8,7 @@ TEST(NextDateBoundaryTest,NormalValue){
 	EXPECT_STREQ("1/2/1813",NextDateProblem(1,1,1813));
 	EXPECT_STREQ("1/2/1912",NextDateProblem(1,1,1912));
 	EXPECT_STREQ("1/2/2011",NextDateProblem(1,1,2011));
-   EXPECT_STREQ("1/2/2012",NextDateProblem(1,1,2012));
+    EXPECT_STREQ("1/2/2012",NextDateProblem(1,1,2012));
 
     EXPECT_STREQ("1/3/1812",NextDateProblem(1,2,1812));
     EXPECT_STREQ("1/3/1813",NextDateProblem(1,2,1813));
@@ -28,9 +28,85 @@ TEST(NextDateBoundaryTest,NormalValue){
     EXPECT_STREQ("1/31/2011",NextDateProblem(1,30,2011));
     EXPECT_STREQ("1/31/2012",NextDateProblem(1,30,2012));
 
+    EXPECT_STREQ("2/1/1812",NextDateProblem(1,31,1812));
     EXPECT_STREQ("2/1/1813",NextDateProblem(1,31,1813));
     EXPECT_STREQ("2/1/1912",NextDateProblem(1,31,1912));
+    EXPECT_STREQ("2/1/2011",NextDateProblem(1,31,2011));
+    EXPECT_STREQ("2/1/2012",NextDateProblem(1,31,2012));
 
+
+
+
+    EXPECT_STREQ("3/1/1812",NextDateProblem(2,29,1812));
+    EXPECT_STREQ("3/1/1813",NextDateProblem(2,28,1813));
+    EXPECT_STREQ("3/1/1912",NextDateProblem(2,29,1912));
+    EXPECT_STREQ("3/1/2011",NextDateProblem(2,28,2011));
+    EXPECT_STREQ("3/1/2012",NextDateProblem(2,29,2012));
+
+
+
+
+    EXPECT_STREQ("12/2/1812",NextDateProblem(12,1,1812));
+    EXPECT_STREQ("12/2/1813",NextDateProblem(12,1,1813));
+    EXPECT_STREQ("12/2/1912",NextDateProblem(12,1,1912));
+    EXPECT_STREQ("12/2/2011",NextDateProblem(12,1,2011));
+    EXPECT_STREQ("12/2/2012",NextDateProblem(12,1,2012));
+
+    EXPECT_STREQ("12/3/1812",NextDateProblem(12,2,1812));
+    EXPECT_STREQ("12/3/1813",NextDateProblem(12,2,1813));
+    EXPECT_STREQ("12/3/1912",NextDateProblem(12,2,1912));
+    EXPECT_STREQ("12/3/2011",NextDateProblem(12,2,2011));
+    EXPECT_STREQ("12/3/2012",NextDateProblem(12,2,2012));
+
+    EXPECT_STREQ("12/16/1812",NextDateProblem(12,15,1812));
+    EXPECT_STREQ("12/16/1813",NextDateProblem(12,15,1813));
+    EXPECT_STREQ("12/16/1912",NextDateProblem(12,15,1912));
+    EXPECT_STREQ("12/16/2011",NextDateProblem(12,15,2011));
+    EXPECT_STREQ("12/16/2012",NextDateProblem(12,15,2012));
+
+
+    EXPECT_STREQ("12/31/1812",NextDateProblem(12,30,1812));
+    EXPECT_STREQ("12/31/1813",NextDateProblem(12,30,1813));
+    EXPECT_STREQ("12/31/1912",NextDateProblem(12,30,1912));
+    EXPECT_STREQ("12/31/2011",NextDateProblem(12,30,2011));
+    EXPECT_STREQ("12/31/2012",NextDateProblem(12,30,2012));
+
+    EXPECT_STREQ("1/1/1813",NextDateProblem(12,31,1812));
+    EXPECT_STREQ("1/1/1814",NextDateProblem(12,31,1813));
+    EXPECT_STREQ("1/1/1913",NextDateProblem(12,31,1912));
+    EXPECT_STREQ("1/1/2012",NextDateProblem(12,31,2011));
+    EXPECT_STREQ("2012 is over",NextDateProblem(12,31,2012));
+
+
+    EXPECT_STREQ("4/2/1812",NextDateProblem(4,1,1812));
+    EXPECT_STREQ("4/2/1813",NextDateProblem(4,1,1813));
+    EXPECT_STREQ("4/2/1912",NextDateProblem(4,1,1912));
+    EXPECT_STREQ("4/2/2011",NextDateProblem(4,1,2011));
+    EXPECT_STREQ("4/2/2012",NextDateProblem(4,1,2012));
+
+    EXPECT_STREQ("4/3/1812",NextDateProblem(4,2,1812));
+    EXPECT_STREQ("4/3/1813",NextDateProblem(4,2,1813));
+    EXPECT_STREQ("4/3/1912",NextDateProblem(4,2,1912));
+    EXPECT_STREQ("4/3/2011",NextDateProblem(4,2,2011));
+    EXPECT_STREQ("4/3/2012",NextDateProblem(4,2,2012));
+
+    EXPECT_STREQ("4/16/1812",NextDateProblem(4,15,1812));
+    EXPECT_STREQ("4/16/1813",NextDateProblem(4,15,1813));
+    EXPECT_STREQ("4/16/1912",NextDateProblem(4,15,1912));
+    EXPECT_STREQ("4/16/2011",NextDateProblem(4,15,2011));
+    EXPECT_STREQ("4/16/2012",NextDateProblem(4,15,2012));
+
+    EXPECT_STREQ("4/30/1812",NextDateProblem(4,29,1812));
+    EXPECT_STREQ("4/30/1813",NextDateProblem(4,29,1813));
+    EXPECT_STREQ("4/30/1912",NextDateProblem(4,29,1912));
+    EXPECT_STREQ("4/30/2011",NextDateProblem(4,29,2011));
+    EXPECT_STREQ("4/30/2012",NextDateProblem(4,29,2012));
+
+    EXPECT_STREQ("5/1/1812",NextDateProblem(4,30,1812));
+    EXPECT_STREQ("5/1/1813",NextDateProblem(4,30,1813));
+    EXPECT_STREQ("5/1/1912",NextDateProblem(4,30,1912));
+    EXPECT_STREQ("5/1/2011",NextDateProblem(4,30,2011));
+    EXPECT_STREQ("5/1/2012",NextDateProblem(4,30,2012));
 
 
 }
